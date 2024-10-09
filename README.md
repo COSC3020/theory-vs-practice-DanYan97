@@ -9,10 +9,10 @@
   2. Asympotic analysis is a theoretical model, it does not account for the real-world
   hardware, such as CP cache size, memory bandwith, diskI/O...These can also impact
   the actual performance.
-  3. Asympotic analysis is often related with the size of the input. But in real world
-  scenarios, it also need to consider other factors such as the data structure. The
-  use of different algorithms should favor corresponding data structures to achieve better
-  performance.
+  3. Asympotic analysis assumes worst-case, best-case, or average-case scenarios, based 
+  on a theoretical model of data distribution, but in real-world situation, the distribution
+  of the data could be varied(skewed or repetiyive data), it can casue an unexpected performance.
+  For example, the unbalanced binary search tree.
 
 - Suppose finding a particular element in a binary search tree with 1,000
   elements takes 5 seconds. Given what you know about the asymptotic complexity
@@ -27,11 +27,13 @@
 - You measure the time with 10,000 elements and it takes 100 seconds! List 3
   reasons why this could be the case, given that reasoning with the asymptotic
   complexity suggests a different time.
- 1. The operation may ignored the constants and lower-order terms, this could have 
- large impact than expect.
+ 1. The way how the BST is implemented could be problematic when the input size gets larger.
+  For example, how nodes are created, managed and traversed.
  2. The hardware constraints. For example, if the tree with 10000 elements takes more 
- memory than is available in RAM, it could slow down the operations.
- 3. The binary tree is unbalanced, leading to a linear growth of the time. (the worst-case)
+  memory than is available in RAM, it could slow down the operations.
+ 3. The binary tree is unbalanced, the structure becomes to a linked list. For example, if
+  searching for a value near the bottom of that skewed tree, every single node need to be checked,
+  this could increase the time linearly with the number of elements.
 
 “I certify that I have listed all sources used to complete this exercise,
  including the use of any Large Language Models. 
